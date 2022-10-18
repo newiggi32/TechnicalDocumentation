@@ -1,0 +1,58 @@
+﻿<Window x:Class="TechnicalDocumentation.Windows.wUser"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TechnicalDocumentation.Windows"
+        mc:Ignorable="d"
+         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+       Title="Техдокументация" Height="693.75" Width="1546"  Icon="/Resources/icon.ico">
+    <Grid  Background="#d7d7d7">
+        <TextBox x:Name="Find" materialDesign:HintAssist.Hint="Поиск по названию документа" Style="{StaticResource MaterialDesignFloatingHintTextBox}" HorizontalAlignment="Left"  Margin="214,14,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="395"/>
+
+        <Border Width="173" HorizontalAlignment="Left" Margin="9,10,0,10" Background="White" Padding="5" >
+            <Grid>
+                <TextBlock Text="Пользователь"  Margin="0,10,0,0" FontSize="20"  HorizontalAlignment="Center"></TextBlock>
+                <Button Content="Отчеты" Margin="0,72,0,516" Height="Auto" Name="btnReports"  />
+                <Button Content="Выйти" Margin="0,527,0,61" Height="Auto" Name="btnExit"  />
+
+            </Grid>
+        </Border>
+
+        <DataGrid Name="dgogrenci" CanUserAddRows="False" HorizontalAlignment="Left" AutoGenerateColumns="False" Height="556" Margin="214,81,0,0" VerticalAlignment="Top" Width="1346" >
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Index}" Header="Индекс" IsReadOnly="True" Width="2*"/>
+                <DataGridTextColumn Binding="{Binding Name}" Header="Название" IsReadOnly="True" Width="3*" />
+                <DataGridTextColumn Binding="{Binding Doc_tipe.Name}" Header="Тип документа" IsReadOnly="True" Width="2*" />
+                <DataGridTextColumn Binding="{Binding Validity_period, StringFormat=\{0:dd.MM.yy\}}" Header="Срок действия" IsReadOnly="True" Width="2*" />
+                <DataGridTextColumn Binding="{Binding Save_place.Name}" Header="Место хранения" IsReadOnly="True" Width="2*" />
+
+                <DataGridTemplateColumn Header="Файл">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button >
+                                <StackPanel>
+                                    <Image Source="/Resources/open.jpg" Width="20" Height="20" />
+                                </StackPanel>
+                            </Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                <DataGridTextColumn Binding="{Binding Department.Name}" Header="Разработчик" IsReadOnly="True"  Width="2*" />
+                <DataGridTextColumn Binding="{Binding Number_order}" Header="Номер приказа" IsReadOnly="True" Width="2*" />
+                <DataGridTextColumn Binding="{Binding Date_order, StringFormat=\{0:dd.MM.yy\}}" Header="Дата приказа" IsReadOnly="True" Width="2*" />
+                <DataGridTextColumn Binding="{Binding Relevance}" Header="Актуальность" IsReadOnly="True" Width="2*" />
+            </DataGrid.Columns>
+        </DataGrid>
+        <Expander Header="Расширенный поиск"  Margin="628,14,529,0" VerticalAlignment="Top">
+            <StackPanel>
+                <TextBox materialDesign:HintAssist.Hint="Индекс" Name="txtIndexSearch" />
+                <ComboBox materialDesign:HintAssist.Hint="Тип документа" Name="cmbTypeDocuments"/>
+                <ComboBox materialDesign:HintAssist.Hint="Место хранения" Name="cmbPlaceStore" />
+                <CheckBox Content="Актуальность"/>
+
+            </StackPanel>
+        </Expander>
+    </Grid>
+</Window>

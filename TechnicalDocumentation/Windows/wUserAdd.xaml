@@ -1,0 +1,21 @@
+﻿<Window x:Class="TechnicalDocumentation.Windows.wUserAdd"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TechnicalDocumentation.Windows"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"     
+        mc:Ignorable="d"           
+        Title="Добавление пользователя" Height="344.576" Width="380" Loaded="Window_Loaded" Icon="/Resources/icon.ico">
+    <Grid>
+        <StackPanel Margin="10,10,10,10" PreviewKeyDown="StackPanel_PreviewKeyDown">
+            <TextBox x:Name="LnameTxt" materialDesign:HintAssist.Hint="Фамилия*"  VerticalAlignment="Top" Margin="0,10,0,0"/>
+            <TextBox x:Name="FnameTxt" materialDesign:HintAssist.Hint="Имя*" VerticalAlignment="Top"  Margin="0,10,0,0"/>
+            <TextBox x:Name="PnameTxt" materialDesign:HintAssist.Hint="Отчество*"  VerticalAlignment="Top"  Margin="0,10,0,0"/>
+            <TextBox x:Name="LoginTxt" materialDesign:HintAssist.Hint="Логин*"  VerticalAlignment="Top"  Margin="0,10,0,0"/>
+            <TextBox x:Name="PasswordTxt" materialDesign:HintAssist.Hint="Пароль*" VerticalAlignment="Top"  Margin="0,10,0,0"/>
+            <ComboBox x:Name="RoleCombo"  materialDesign:HintAssist.Hint="Доступ*" VerticalAlignment="Top"  Margin="0,12,0,0" DisplayMemberPath="Name"/>
+            <Button Content="Добавить"   Click="AddUser_Click" Margin="0,30,0,0" />
+        </StackPanel>
+    </Grid>
+</Window>

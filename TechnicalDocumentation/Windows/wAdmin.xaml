@@ -1,0 +1,57 @@
+﻿<Window x:Class="TechnicalDocumentation.Windows.wAdmin"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TechnicalDocumentation.Windows"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"        
+        Title="Техдокументация" Height="693.75" Width="1577.5" Loaded="Window_Loaded" Icon="/Resources/icon.ico">
+    <Grid  Background="#d7d7d7">
+        <TextBox x:Name="Find" materialDesign:HintAssist.Hint="Поиск по названию документа" Style="{StaticResource MaterialDesignFloatingHintTextBox}" HorizontalAlignment="Left"  Margin="214,14,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="395"/>
+        <Border Width="173" HorizontalAlignment="Left" Margin="10,10,0,10" Background="White" Padding="5" >
+            <Grid>
+                <TextBlock Text="Администратор" HorizontalAlignment="Center" FontSize="20" Margin="0,10,0,0"/>
+                <Button Content="Добавить документ" Margin="0,70,0,518" Click="AddDoc_Click" Height="Auto" />
+                <Button Content="Пользователи" Margin="0,120,0,468" Height="Auto" Click="Users_Click" />
+                <Button Content="Отчеты" Margin="0,170,0,418" Height="Auto" Click="Reports_Click" />
+                <Button Content="Резервирование" Margin="0,220,0,368" Height="Auto" Click="Reservation_Click" />
+                <Button Content="Выйти" Margin="0,527,0,61" Height="Auto" Click="Exit_Click" />
+            </Grid>
+        </Border>
+        <DataGrid Name="dgogrenci" CanUserAddRows="False" HorizontalAlignment="Left" AutoGenerateColumns="False" Height="556" Margin="214,81,0,0" VerticalAlignment="Top" Width="1346" MouseDoubleClick="dgogrenci_MouseDoubleClick" PreviewKeyDown="dgogrenci_PreviewKeyDown">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Index}" Header="Индекс" IsReadOnly="True" Width="2*"/>
+                <DataGridTextColumn Binding="{Binding Name}" Header="Название" IsReadOnly="True" Width="3*" />
+                <DataGridTextColumn Binding="{Binding Doc_tipe.Name}" Header="Тип документа" IsReadOnly="True" Width="2*" />
+                <DataGridTextColumn Binding="{Binding Validity_period, StringFormat=\{0:dd.MM.yyyy\}}" Header="Срок действия" IsReadOnly="True" Width="2*" />
+                <DataGridTextColumn Binding="{Binding Save_place.Name}" Header="Место хранения" IsReadOnly="True" Width="2*" />
+
+                <DataGridTemplateColumn Header="Файл">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Click="FileClick">
+                                <StackPanel>
+                                    <Image Source="/Resources/open.jpg" Width="20" Height="20" />
+                                </StackPanel>
+                            </Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                <DataGridTextColumn Binding="{Binding Department.Name}" Header="Разработчик" IsReadOnly="True"  Width="2*" />
+                <DataGridTextColumn Binding="{Binding Number_order}" Header="Номер приказа" IsReadOnly="True" Width="2*" />
+                <DataGridTextColumn Binding="{Binding Date_order, StringFormat=\{0:dd.MM.yyyy\}}" Header="Дата приказа" IsReadOnly="True" Width="2*" />
+                <DataGridTextColumn Binding="{Binding Relevance}" Header="Актуальность" IsReadOnly="True" Width="2*" />
+            </DataGrid.Columns>
+        </DataGrid>
+        <Expander Header="Расширенный поиск"  Margin="628,14,529,0" VerticalAlignment="Top">
+            <StackPanel>
+                <TextBox materialDesign:HintAssist.Hint="Индекс" Name="txtIndexSearch" LostFocus="txtIndexSearch_LostFocus" />
+                <ComboBox materialDesign:HintAssist.Hint="Тип документа" Name="cmbTypeDocuments" LostFocus="cmbTypeDocuments_LostFocus" DisplayMemberPath="Name"/>
+                <ComboBox materialDesign:HintAssist.Hint="Место хранения"  Name="cmbPlaceStore" LostFocus="cmbPlaceStore_LostFocus"  DisplayMemberPath="Name"/>
+                <CheckBox Content="Актуальность" Name="chbRelevant" IsThreeState="True" LostFocus="chbRelevant_LostFocus"/>
+            </StackPanel>
+        </Expander>
+    </Grid>
+</Window>

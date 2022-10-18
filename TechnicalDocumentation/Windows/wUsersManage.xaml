@@ -1,0 +1,23 @@
+﻿<Window x:Class="TechnicalDocumentation.Windows.wUsersManage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TechnicalDocumentation.Windows"
+        mc:Ignorable="d"
+        Title="Пользователи" Height="521.937" Width="1032.816" Loaded="Window_Loaded" Icon="/Resources/icon.ico">
+    <Grid>
+        <DataGrid x:Name="dgogrenci" IsReadOnly="True" CanUserDeleteRows="False" CanUserAddRows="False" HorizontalAlignment="Left" AutoGenerateColumns="False" Height="365" Margin="36,28,0,0" VerticalAlignment="Top" Width="959"  PreviewKeyDown="dgogrenci_PreviewKeyDown" MouseDoubleClick="dgogrenci_MouseDoubleClick">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Login}" Header="Логин" Width="3*" />
+                <DataGridTextColumn Binding="{Binding Password}" Header="Пароль" Width="3*" />
+                <DataGridTextColumn Binding="{Binding Lname}" Header="Фамилия" Width="3*" />
+                <DataGridTextColumn Binding="{Binding Fname}" Header="Имя" Width="3*" />
+                <DataGridTextColumn Binding="{Binding Pname}" Header="Отчество" Width="3*" />
+                <DataGridTextColumn Binding="{Binding Role.Name}" Header="Доступ" Width="3*" />
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Content="Добавть пользователя" HorizontalAlignment="Center" VerticalAlignment="Top" Width="224" Click="AddUser_Click" Height="35" Margin="392,422,409,0"/>
+    </Grid>
+</Window>
+

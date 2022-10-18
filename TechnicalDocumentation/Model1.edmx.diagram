@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="98da4d079ff04b9aa272128b3bc108af" Name="Diagram1">
+        <EntityTypeShape EntityType="BDModel.Department" Width="1.5" PointX="0.75" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDModel.Doc_tipe" Width="1.5" PointX="0.75" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDModel.Document" Width="1.5" PointX="3" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDModel.Role" Width="1.5" PointX="2.75" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDModel.Save_place" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDModel.sysdiagram" Width="1.5" PointX="7.75" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDModel.User" Width="1.5" PointX="5" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDModel.Who_know" Width="1.5" PointX="5.25" PointY="3.375" IsExpanded="true" />
+        <AssociationConnector Association="BDModel.FK_Documents_Departments" ManuallyRouted="false" />
+        <AssociationConnector Association="BDModel.FK_Who_know_Departments" ManuallyRouted="false" />
+        <AssociationConnector Association="BDModel.FK_Documents_Doc_tipe" ManuallyRouted="false" />
+        <AssociationConnector Association="BDModel.FK_Documents_Save_place" ManuallyRouted="false" />
+        <AssociationConnector Association="BDModel.FK_Who_know_Documents" ManuallyRouted="false" />
+        <AssociationConnector Association="BDModel.FK_Users_Roles" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

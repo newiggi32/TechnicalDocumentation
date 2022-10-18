@@ -1,0 +1,37 @@
+﻿<Window x:Class="TechnicalDocumentation.Windows.wReport1"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TechnicalDocumentation.Windows"
+        mc:Ignorable="d"
+        Title="Техдокументация" Height="718" Width="1440" Loaded="Window_Loaded" Icon="/Resources/icon.ico">
+    <Grid>
+        <DataGrid Name="dgogrenci" CanUserDeleteRows="False" CanUserAddRows="False" HorizontalAlignment="Center" AutoGenerateColumns="False" Height="556" Margin="34,101,0,0" VerticalAlignment="Top" Width="1346">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Index}" Header="Индекс" IsReadOnly="True" Width="2*"/>
+                <DataGridTextColumn Binding="{Binding Name}" Header="Название" IsReadOnly="True" Width="3*" />
+                <DataGridTextColumn Binding="{Binding Number_order}" Header="Номер приказа" IsReadOnly="True" Width="2*" />
+                <DataGridTextColumn Binding="{Binding Date_order, StringFormat=\{0:dd.MM.yyyy\}}" Header="Дата приказа" IsReadOnly="True" Width="2*" />
+                <DataGridTextColumn Binding="{Binding Validity_period, StringFormat=\{0:dd.MM.yyyy\}}" Header="Срок действия" IsReadOnly="True" Width="2*" />
+                <DataGridTextColumn Binding="{Binding Doc_tipe.Name}" Header="Тип документа" IsReadOnly="True" Width="2*" />
+                <DataGridTextColumn Binding="{Binding Department.Name}" Header="Разработчик" IsReadOnly="True"  Width="2*" />
+                <DataGridTextColumn Binding="{Binding Save_place.Name}" Header="Место хранения" IsReadOnly="True" Width="2*" />
+                <DataGridTemplateColumn Header="Файл">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Click="FileClick">
+                                <StackPanel>
+                                    <Image Source="/Resources/open.jpg" Width="20" Height="20" />
+                                </StackPanel>
+                            </Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <TextBlock FontSize="30" HorizontalAlignment="Center" Margin="34,10,0,0" TextWrapping="Wrap" Text="Техническая документация" VerticalAlignment="Top"/>
+        <TextBlock FontSize="15" x:Name="CountDaysTxt" HorizontalAlignment="Center" Margin="34,55,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <Button Content="Сохранить как" HorizontalAlignment="Left" Margin="1231,34,0,0" VerticalAlignment="Top" Width="148" Click="SaveDoc_Click"/>
+    </Grid>
+</Window>

@@ -1,0 +1,17 @@
+﻿<Window x:Class="TechnicalDocumentation.Windows.wBackUp"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TechnicalDocumentation.Windows"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        Title="Резервное копирование" Height="172.337" Width="688.07" Loaded="Window_Loaded" Icon="/Resources/icon.ico">
+    <Grid>
+        <TextBox x:Name="txtWayDirectory" materialDesign:HintAssist.Hint="Путь к папке" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="10,19,353,77" Width="317" />
+        <Button Content="Создать резервную копию" HorizontalAlignment="Center" Margin="346,24,28,0" VerticalAlignment="Top" Width="306" Click="CreateBackUp_Click" Height="40"/>
+        <TextBox x:Name="txtWayFile" materialDesign:HintAssist.Hint="Файл" Style="{StaticResource MaterialDesignFloatingHintTextBox}" IsReadOnly="True" Height="37" Margin="10,79,353,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="317"/>
+        <Button Content="Выбрать файл" HorizontalAlignment="Left" Margin="346,79,0,0" VerticalAlignment="Top" Width="147" Click="SelectFile_Click" Height="39"/>
+        <Button Content="Загрузить" HorizontalAlignment="Left" Margin="505,79,28,0" VerticalAlignment="Top" Width="147" Click="UseBackUp_Click" Height="39"/>
+    </Grid>
+</Window>
